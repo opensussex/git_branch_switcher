@@ -1,0 +1,19 @@
+{
+  "name": "doneban",
+  "homepage": "https://github.com/opensussex/doneban",
+  "description": "",
+  "main": "",
+  "license": "GPL",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "uikit": "^2.27.1",
+    "intercooler-js" : "1.0.2"
+  }
+}

@@ -1,0 +1,5 @@
+vendor
+bower_components
+.DS_Store
+.vagrant
+config.php

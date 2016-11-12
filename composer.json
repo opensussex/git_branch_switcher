@@ -1,0 +1,19 @@
+{
+    "name": "wark",
+    "description": "Wark - micro mvc",
+    "license": "free software",
+    "type": "project",
+    "minimum-stability": "stable",
+    "config": {
+        "bin-dir": "bin"
+    },
+    "autoload": {
+        "psr-0": { "": "src" }
+    },
+    "require-dev": {
+        "raveren/kint": "dev-master"
+    },
+    "require": {
+        "j4mie/paris" : "~1.5.4"
+    }
+}
