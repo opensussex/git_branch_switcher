@@ -20,5 +20,7 @@ define('MODEL_SUFFIX','.class.php');
 define('CORE_DIR','../wark_core/');
 define('DEPLOY_DIR','/var/www/app/');
 
+define('REPOSITORY_DIR', '/var/www');
+
 define('PRODUCTION',false);
 ?>
