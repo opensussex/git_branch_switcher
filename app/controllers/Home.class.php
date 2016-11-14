@@ -25,7 +25,7 @@ use Gitonomy\Git\Repository;
         public function branch()
         {
             $branch = $_POST['branches'];
-            $migration = $_POST['migration'];
+            $migration = (isset($_POST['migration']))?true:false;
             
             $repository = new Repository(REPOSITORY_DIR);
             $wc = $repository->getWorkingCopy();
@@ -38,13 +38,14 @@ use Gitonomy\Git\Repository;
             if ($migration) {
                 $content = "
                 #!/bin/bash \n
-                echo "Push is disabled" \n
+                touch /Users/test.txt \n
                 exit 1
 
                 ";
 
                 // this hook will reject every push
                 try {
+                    $hooks = $repository->getHooks();
                     $hooks->set('post-checkout', $content);
                 } catch(Exception $e) {
                 
