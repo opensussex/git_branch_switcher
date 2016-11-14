@@ -15,7 +15,7 @@ use Gitonomy\Git\Repository;
             $branches = [];
             foreach ($remote_branches  as $branch) {
                 if($branch !== "" && $branch !== "->" ) {
-                        $branches[] = $branch;
+                        $branches[] = str_replace("origin/","",$branch);
                 }
             }
 
