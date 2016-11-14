@@ -5,22 +5,27 @@ use Gitonomy\Git\Repository;
 		
 		private $meta_title = 'Git Branch Switcher';
 		
-		public function index()
+        public function index()
         {// this is what we call
-            
+
+
             $repository = new Repository(REPOSITORY_DIR);
+            $remote_branches = explode(" ",$repository->run("branch",["-r"]));
+
             $branches = [];
-            foreach ($repository->getReferences()->getBranches() as $branch) {
-                $branches[] = $branch->getName();
+            foreach ($remote_branches  as $branch) {
+                if($branch !== "" && $branch !== "->" ) {
+                        $branches[] = $branch;
+                }
             }
 
-			$view = 'home'; // set the home view.
-			$content_vars = null;
+            $view = 'home'; // set the home view.
+            $content_vars = null;
             $content_vars['branches'] = $branches;
-			$this->loadView('header',array('meta_title'=> $this->meta_title)); 
-			$this->loadView($view,$content_vars);
-			$this->loadView('footer');
-		}
+            $this->loadView('header',array('meta_title'=> $this->meta_title));
+            $this->loadView($view,$content_vars);
+            $this->loadView('footer');
+        }
         
         public function branch()
         {
