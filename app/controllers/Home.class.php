@@ -28,7 +28,7 @@ use Gitonomy\Git\Repository;
             $repository = new Repository(REPOSITORY_DIR);
             $wc = $repository->getWorkingCopy();
             try {
-                $wc->checkout($branch);
+                d($wc->checkout($branch));
                 echo $repository->run('status');
             } catch (Exception $e) {
                 //
