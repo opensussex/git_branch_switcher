@@ -35,12 +35,13 @@ use Gitonomy\Git\Repository;
                 //
             }
             
+            $migrationCommand = MIGRATION_COMMAND; 
+            
             if ($migration) {
                 $content = "
                 #!/bin/bash \n
-                touch test.txt \n
+                $migrationCommand \n
                 exit 1
-
                 ";
 
                 // this hook will reject every push
