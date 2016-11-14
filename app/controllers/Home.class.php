@@ -15,7 +15,7 @@ use Gitonomy\Git\Repository;
             $branches = [];
             foreach ($remote_branches  as $branch) {
                 if($branch !== "" && $branch !== "->" ) {
-                        $branches[] = str_replace("origin/","",$branch);
+                        $branches[] = str_replace("\n","",str_replace("origin/","",$branch));
                 }
             }
 
@@ -38,7 +38,7 @@ use Gitonomy\Git\Repository;
                 $wc->checkout($branch);
                 echo $repository->run('status');
             } catch (Exception $e) {
-                //
+                echo $e->getErrorOutput();
             }
             
             $migrationCommand = MIGRATION_COMMAND; 
