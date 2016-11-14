@@ -27,7 +27,12 @@ use Gitonomy\Git\Repository;
             $branch = $_POST['branches'];
             $repository = new Repository(REPOSITORY_DIR);
             $wc = $repository->getWorkingCopy();
-            $wc->checkout($branch);
+            try {
+                $wc->checkout($branch);
+                echo $wc->getStatus();
+            } catch (Exception $e) {
+                //
+            }
         }
 	
 	}
