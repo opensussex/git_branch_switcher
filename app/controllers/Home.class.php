@@ -33,8 +33,9 @@ use Gitonomy\Git\Repository;
             $migration = (isset($_POST['migration']))?true:false;
             
             $repository = new Repository(REPOSITORY_DIR);
-            $wc = $repository->getWorkingCopy($branch);
+            $wc = $repository->getWorkingCopy();
             try {
+                $wc->checkout($branch);
                 echo $repository->run('status');
             } catch (Exception $e) {
                 //
