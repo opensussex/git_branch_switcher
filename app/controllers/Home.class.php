@@ -39,6 +39,7 @@ use Gitonomy\Git\Repository;
                 echo $repository->run('status');
             } catch (Exception $e) {
                 echo $e->getErrorOutput();
+                exit();
             }
             
             $migrationCommand = MIGRATION_COMMAND; 
