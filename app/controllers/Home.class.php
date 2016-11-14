@@ -29,7 +29,7 @@ use Gitonomy\Git\Repository;
             $wc = $repository->getWorkingCopy();
             try {
                 $wc->checkout($branch);
-                echo $wc->run('status');
+                echo $repository->run('status');
             } catch (Exception $e) {
                 //
             }
