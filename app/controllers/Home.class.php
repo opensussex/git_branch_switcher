@@ -38,7 +38,7 @@ use Gitonomy\Git\Repository;
             if ($migration) {
                 $content = "
                 #!/bin/bash \n
-                touch /Users/test.txt \n
+                touch test.txt \n
                 exit 1
 
                 ";
